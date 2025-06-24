@@ -1,0 +1,14 @@
+version: "3"
+services:
+  latex:
+    build: .
+    image: latex-env
+    container_name: latex-editor
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ../projects:/home/latexuser/projects/seminar
+    network_mode: "host"  # For X11 forwarding (optional, but easy)
+    stdin_open: true
+    tty: true
+    privileged: true
